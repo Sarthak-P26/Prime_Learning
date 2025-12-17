@@ -30,9 +30,37 @@ def result_showing(number, isprime):
     else:
         print(f"{number} is not a prime number")
 
+def run_loop():
+    while True:
+        try:
+            choice = input("You wanna try is again Y/N: ")
+        except ValueError:
+            print("Enter the valid value")
+        if choice == "Y" or "Yes":
+            loop = True
+            break
+        elif choice == "N" or "No":
+            loop = False
+            break
+        else:
+            continue
+    return loop
 
-print("Check Prime Or Not")
 
+print("Check Prime or Not Prime 🕵️  🕵️")
+
+def main():
+    number = take_input()
+    if number <= 2:
+        isprime = set_output(number)
+    else:
+        isprime = unknown_output(number)
+    
+    result_showing(number, isprime)
+
+    
+
+main()
 
 
 # play = True
