@@ -30,45 +30,38 @@ def result_showing(number, isprime):
     else:
         print(f"{number} is not a prime number")
 
-def run_loop():
+def replay():
     while True:
         try:
-            choice = input("You wanna try is again Y/N: ")
+            choice = input("You wanna try is again Y/N: ").lower()
         except ValueError:
             print("Enter the valid value")
-        if choice == "Y" or "Yes":
+        if choice in ("y", "yes"):
             loop = True
             break
-        elif choice == "N" or "No":
+        elif choice in ("n", "no"):
             loop = False
             break
         else:
-            continue
+            print("Enter the valid input....")
     return loop
 
 
 print("Check Prime or Not Prime 🕵️  🕵️")
 
 def main():
-    number = take_input()
-    if number <= 2:
-        isprime = set_output(number)
-    else:
-        isprime = unknown_output(number)
-    
-    result_showing(number, isprime)
+    loop = 1
+    while loop:
+        number = take_input()
+        if number <= 2:
+            isprime = set_output(number)
+        else:
+            isprime = unknown_output(number)
+        
+        result_showing(number, isprime)
 
-    
+        loop = replay()
+        
+if __name__ == "__main__": 
+    main()
 
-main()
-
-
-# play = True
-# while play:
-    
-
-#     user = input("You want to test another number: (yes/no)").lower()
-#     if user == 'yes':
-#         continue
-#     else:
-#         play = False
