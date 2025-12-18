@@ -1,10 +1,9 @@
 def take_input():
-    try:
-        number = int(input("Enter the number: "))
-    except ValueError:
-        print("Enter the valid value.")
-    else:
-        return number
+    while True:
+        try:
+            return int(input("Enter the number: "))
+        except ValueError:
+            print("Enter the valid value.")
 
 
 def set_output(number):
