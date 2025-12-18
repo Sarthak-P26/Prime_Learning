@@ -61,10 +61,14 @@ def main():
                 t.write("History saves here: \n")
     except FileNotFoundError:
         print("Sorry file is not available")
-        
-    with open("history.txt") as f:
-        lines = f.readlines()
-        count = (len(lines) - 1)
+    
+    try:     
+        with open("history.txt") as f:
+            lines = f.readlines()
+            count = ((len(lines)) - 1)
+    except FileNotFoundError:
+        print("Sorry file is not available")
+
     
     loop = 1
     while loop:
