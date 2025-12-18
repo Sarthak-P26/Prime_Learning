@@ -51,8 +51,6 @@ def replay():
 print("Check Prime or Not Prime 🕵️  🕵️")
 
 def main():
-     
-
     with open("history.txt", "r+") as t:
         if (len(t.readlines()) <= 0):
             t.write("History saves here: \n")
