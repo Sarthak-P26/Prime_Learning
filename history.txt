@@ -6,3 +6,4 @@ History saves here:
 	5) 97 = It's prime 
 	6) 59 = It's prime 
 	7) 82 = It's not prime 
+	8) 3 = It's prime 
