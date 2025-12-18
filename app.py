@@ -55,10 +55,13 @@ def replay():
 print("Check Prime or Not Prime 🕵️  🕵️")
 
 def main():
-    with open("history.txt", "r+") as t:
-        if (len(t.readlines()) <= 0):
-            t.write("History saves here: \n")
-    
+    try:
+        with open("history.txt", "r+") as t:
+            if (len(t.readlines()) <= 0):
+                t.write("History saves here: \n")
+    except FileNotFoundError:
+        print("Sorry file is not available")
+        
     with open("history.txt") as f:
         lines = f.readlines()
         count = (len(lines) - 1)
