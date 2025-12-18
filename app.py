@@ -50,25 +50,31 @@ def replay():
             print("Enter the valid input....")
     return loop
 
-
-print("Check Prime or Not Prime 🕵️  🕵️")
-
-def main():
+def history_header():
     try:
         with open("history.txt", "r+") as t:
             if (len(t.readlines()) <= 0):
                 t.write("History saves here: \n")
     except FileNotFoundError:
         print("Sorry file is not available")
-    
+
+def count_giver():
     try:     
         with open("history.txt") as f:
             lines = f.readlines()
-            count = ((len(lines)) - 1)
+            return ((len(lines)) - 1)
     except FileNotFoundError:
         print("Sorry file is not available")
 
+
+print("Check Prime or Not Prime 🕵️  🕵️")
+
+def main():
     
+    history_header()
+    
+    count = count_giver()
+
     loop = 1
     while loop:
         number = take_input()
