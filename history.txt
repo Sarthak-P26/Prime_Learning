@@ -1,0 +1,8 @@
+History saves here: 
+	1) 55 = It's not prime 
+	2) 19 = It's prime 
+	3) 55 = It's not prime 
+	4) 99 = It's not prime 
+	5) 97 = It's prime 
+	6) 59 = It's prime 
+	7) 82 = It's not prime 
