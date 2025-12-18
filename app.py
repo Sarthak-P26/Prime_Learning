@@ -74,10 +74,7 @@ def main():
         with open("history.txt", "a") as h:
             h.write(f"\t{count}) {number} = {solution} \n")
         
-        
-
-
-        
+             
 if __name__ == "__main__": 
     main()
     
