@@ -1,8 +1,5 @@
 def take_input():
-    try:
-        number = int(input("Enter the number: "))
-    except ValueError:
-        print("Enter the valid value")
+    number = int(input("Enter the number: "))
     return number
 
 
@@ -26,9 +23,13 @@ def unknown_output(number):
 
 def result_showing(number, isprime):
     if isprime == True:
-        print(f"{number} is a prime number")
+        print(f"{number} It's a prime number")
+        solution_variable = "It's prime"
+        return  solution_variable
     else:
         print(f"{number} is not a prime number")
+        soluction_second = "It's not prime"
+        return  soluction_second
 
 def replay():
     while True:
@@ -50,6 +51,16 @@ def replay():
 print("Check Prime or Not Prime 🕵️  🕵️")
 
 def main():
+     
+
+    with open("history.txt", "r+") as t:
+        if (len(t.readlines()) <= 0):
+            t.write("History saves here: \n")
+    
+    with open("history.txt") as f:
+        lines = f.readlines()
+        count = (len(lines) - 1)
+    
     loop = 1
     while loop:
         number = take_input()
@@ -58,10 +69,19 @@ def main():
         else:
             isprime = unknown_output(number)
         
-        result_showing(number, isprime)
+        solution = result_showing(number, isprime)
+       
+        loop = replay() 
+        count += 1
+        with open("history.txt", "a") as h:
+            h.write(f"\t{count}) {number} = {solution} \n")
+        
+        
 
-        loop = replay()
+
         
 if __name__ == "__main__": 
     main()
+    
+
 
