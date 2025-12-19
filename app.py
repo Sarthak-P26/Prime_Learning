@@ -8,20 +8,20 @@ def take_input():
 
 def set_output(number):
     if number <= 1:
-        is_prime = False
+        return False
     elif number == 2:
-        is_prime = True
-    return is_prime
+        return True
+    
 
 
 def unknown_output(number):
     for item in range(2, number):
         if number % item == 0:
-            isprime = False
+            return False
             break
         else:
-            isprime = True
-    return isprime 
+            return True
+    
 
 
 def result_showing(number, isprime):
@@ -67,11 +67,8 @@ def count_giver():
 print("Check Prime or Not Prime 🕵️  🕵️")
 
 def main():
-    
     history_header()
-    
     count = count_giver()
-
     loop = 1
     while loop:
         number = take_input()
