@@ -36,19 +36,16 @@ def result_showing(number, isprime):
 
 def replay():
     while True:
-        try:
-            choice = input("You wanna try is again Y/N: ").lower()
-        except ValueError:
-            print("Enter the valid value")
+        choice = input("You wanna try is again Y/N: ").lower()
         if choice in ("y", "yes"):
-            loop = True
+            return True
             break
         elif choice in ("n", "no"):
-            loop = False
+            return False
             break
         else:
             print("Enter the valid input....")
-    return loop
+    
 
 def history_header():
     try:
