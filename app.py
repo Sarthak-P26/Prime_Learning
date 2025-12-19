@@ -37,7 +37,6 @@ def result_showing(number, isprime):
 def replay():
     while True:
         choice = input("You wanna try is again Y/N: ").lower()
-        
         if choice in ("y", "yes"):
             return True
         elif choice in ("n", "no"):
@@ -49,7 +48,8 @@ def replay():
 def history_header():
     try:
         with open("history.txt", "r+") as t:
-            if (len(t.readlines()) <= 0):
+            # !!! Need improvement !!! (read the lines and then check file empty)
+            if (len(t.readlines()) <= 0): # Change the logic for this line
                 t.write("History saves here: \n")
     except FileNotFoundError:
         print("Sorry file is not available")
