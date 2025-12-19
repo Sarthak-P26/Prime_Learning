@@ -37,12 +37,11 @@ def result_showing(number, isprime):
 def replay():
     while True:
         choice = input("You wanna try is again Y/N: ").lower()
+        
         if choice in ("y", "yes"):
             return True
-            break
         elif choice in ("n", "no"):
             return False
-            break
         else:
             print("Enter the valid input....")
     
