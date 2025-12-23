@@ -60,6 +60,7 @@ def history_header():
     except FileNotFoundError:
         print("Sorry file is not available")
 
+
 def count_giver():
     try:     
         with open("history.txt") as f:
@@ -67,6 +68,11 @@ def count_giver():
             return ((len(lines)) - 1)
     except FileNotFoundError:
         print("Sorry file is not available")
+
+def history_checker(user_input):
+    filename = 'history.txt'
+    with open(filename) as file_object:
+        file_object.read()
 
 
 print("Check Prime or Not Prime 🕵️  🕵️")
