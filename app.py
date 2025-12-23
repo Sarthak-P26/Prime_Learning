@@ -1,4 +1,5 @@
 def take_input():
+    '''Take input: history or Number'''
     while True:
             user_input = input("Enter a 'h' for history (Or) number: ")
             if user_input.isdigit() or user_input.lower() in ('history', 'History', 'h'):
@@ -7,28 +8,30 @@ def take_input():
                 print("Invalid input...")
 
 def set_output(input):
+    '''input < 1 = Not Prime (or) input ==2 = Prime'''
     if input <= 1:
         return False
     elif input == 2:
         return True
     
 def unknown_output(input):
+    '''Finding the prime or Not Prime'''
     for item in range(2, input):
         if input % item == 0:
             return False
     return True
     
 def result_showing(input, isprime):
+    '''Printing The output and return it '''
     if isprime == True:
         print(f"{input} It's a prime number")
-        solution_variable = "It's prime"
-        return  solution_variable
+        return "It's prime"
     else:
         print(f"{input} is not a prime number")
-        soluction_second = "It's not prime"
-        return  soluction_second
+        return "It's not prime"
 
 def replay():
+    '''Taking input for replay the program.'''
     while True:
         choice = input("You wanna try is again Y/N: ").lower()
         if choice in ("y", "yes"):
@@ -39,6 +42,7 @@ def replay():
             print("Enter the valid input....")
     
 def history_header():
+    '''If history file is empty add a header to it'''
     try:
         with open("history.txt", "r+") as t:
             # !!! Need improvement !!! (read the lines and then check file empty)
@@ -48,6 +52,7 @@ def history_header():
         print("Sorry file is not available")
 
 def count_giver():
+    '''Creatinga couter for history writing'''
     try:     
         with open("history.txt") as f:
             lines = f.readlines()
@@ -55,7 +60,8 @@ def count_giver():
     except FileNotFoundError:
         print("Sorry file is not available")
 
-def history_checker(user_input):
+def history_printer(user_input):
+    '''Print the history on user input'''
     filename = 'history.txt'
     with open(filename) as file_object:
         print(file_object.read())
@@ -85,7 +91,7 @@ def main():
         
         elif input.lower() in ("history", "History", 'h') :
             print("This is your full history")
-            history_checker(input)
+            history_printer(input)
             loop = replay() 
                     
 if __name__ == "__main__": 
