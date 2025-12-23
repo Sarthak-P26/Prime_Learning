@@ -11,3 +11,9 @@ History saves here:
 	10) 94 = It's not prime 
 	11) 59 = It's prime 
 	12) 55 = It's prime 
+	13) 55 = It's prime 
+	14) 19 = It's prime 
+	15) 53 = It's prime 
+	16) 69 = It's prime 
+	17) 46 = It's not prime 
+	18) 12 = It's not prime 

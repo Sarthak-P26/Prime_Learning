@@ -1,9 +1,15 @@
 def take_input():
     while True:
-        try:
-            return int(input("Enter the number: "))
-        except ValueError:
-            print("Enter the valid value.")
+            user_input = input("Enter a 'h' for history (Or) number: ")
+            
+            if user_input.isdigit():
+                return int(user_input)
+            elif user_input.lower() in ("history", "History", 'h'):
+                return user_input
+            else:
+                print("Enter the valid value")
+    
+
 
 
 def set_output(number):
