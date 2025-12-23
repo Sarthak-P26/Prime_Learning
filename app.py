@@ -1,42 +1,32 @@
 def take_input():
     while True:
             user_input = input("Enter a 'h' for history (Or) number: ")
-            
-            if user_input.isdigit():
-                return int(user_input)
-            elif user_input.lower() in ("history", "History", 'h'):
+            if user_input.isdigit() or user_input.lower() in ('history', 'History', 'h'):
                 return user_input
             else:
-                print("Enter the valid value")
-    
+                print("Invalid input...")
 
-
-
-def set_output(number):
-    if number <= 1:
+def set_output(input):
+    if input <= 1:
         return False
-    elif number == 2:
+    elif input == 2:
         return True
     
-
-
-def unknown_output(number):
-    for item in range(2, number):
-        if number % item == 0:
+def unknown_output(input):
+    for item in range(2, input):
+        if input % item == 0:
             return False
             break
         else:
             return True
     
-
-
-def result_showing(number, isprime):
+def result_showing(input, isprime):
     if isprime == True:
-        print(f"{number} It's a prime number")
+        print(f"{input} It's a prime number")
         solution_variable = "It's prime"
         return  solution_variable
     else:
-        print(f"{number} is not a prime number")
+        print(f"{input} is not a prime number")
         soluction_second = "It's not prime"
         return  soluction_second
 
@@ -50,7 +40,6 @@ def replay():
         else:
             print("Enter the valid input....")
     
-
 def history_header():
     try:
         with open("history.txt", "r+") as t:
@@ -59,7 +48,6 @@ def history_header():
                 t.write("History saves here: \n")
     except FileNotFoundError:
         print("Sorry file is not available")
-
 
 def count_giver():
     try:     
@@ -72,8 +60,7 @@ def count_giver():
 def history_checker(user_input):
     filename = 'history.txt'
     with open(filename) as file_object:
-        file_object.read()
-
+        print(file_object.read())
 
 print("Check Prime or Not Prime 🕵️  🕵️")
 
@@ -82,20 +69,27 @@ def main():
     count = count_giver()
     loop = 1
     while loop:
-        number = take_input()
-        if number <= 2:
-            isprime = set_output(number)
-        else:
-            isprime = unknown_output(number)
+        input = take_input()
+        if input.isdigit():
+            input = int(input)
+            if input <= 2:
+                isprime = set_output(input)
+            else:
+                isprime = unknown_output(input)
+            
+            solution = result_showing(input, isprime)
+            
+            with open("history.txt", "a") as h:
+                h.write(f"\t{count}) {input} = {solution} \n")
+            
+            loop = replay() 
+            count += 1
         
-        solution = result_showing(number, isprime)
-       
-        loop = replay() 
-        count += 1
-        with open("history.txt", "a") as h:
-            h.write(f"\t{count}) {number} = {solution} \n")
-        
-             
+        elif input.lower() in ("history", "History", 'h') :
+            print("This is your full history")
+            history_checker(input)
+            loop = replay() 
+                    
 if __name__ == "__main__": 
     main()
     
