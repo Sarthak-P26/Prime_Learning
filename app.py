@@ -16,8 +16,7 @@ def unknown_output(input):
     for item in range(2, input):
         if input % item == 0:
             return False
-        else:
-            return True
+    return True
     
 def result_showing(input, isprime):
     if isprime == True:

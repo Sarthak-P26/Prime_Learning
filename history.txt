@@ -17,3 +17,8 @@ History saves here:
 	16) 69 = It's prime 
 	17) 46 = It's not prime 
 	18) 12 = It's not prime 
+	19) 55 = It's prime 
+	19) 55 = It's prime 
+	20) 55 = It's not prime 
+	21) 39 = It's not prime 
+	22) 19 = It's prime 
