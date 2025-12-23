@@ -16,7 +16,6 @@ def unknown_output(input):
     for item in range(2, input):
         if input % item == 0:
             return False
-            break
         else:
             return True
     
