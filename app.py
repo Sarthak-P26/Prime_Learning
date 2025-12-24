@@ -69,6 +69,7 @@ def history_printer(user_input):
 print("Check Prime or Not Prime 🕵️  🕵️")
 
 def main():
+    '''This the main function'''
     history_header()
     count = count_giver()
     loop = 1
