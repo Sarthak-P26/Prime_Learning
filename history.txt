@@ -22,3 +22,11 @@ History saves here:
 	20) 55 = It's not prime 
 	21) 39 = It's not prime 
 	22) 19 = It's prime 
+	23) 55 = It's not prime 
+	24) 55 = It's not prime 
+	25) 3 = It's prime 
+	26) 2 = It's prime 
+	27) 96 = It's not prime 
+	28) 55 = It's not prime 
+	29) 89 = It's prime 
+	30) 45 = It's not prime 

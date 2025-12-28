@@ -7,27 +7,27 @@ def take_input():
             else:
                 print("Invalid input...")
 
-def set_output(input):
-    '''input < 1 = Not Prime (or) input ==2 = Prime'''
-    if input <= 1:
+def set_output(input_number):
+    '''input_number < 1 = Not Prime (or) input_number ==2 = Prime'''
+    if input_number <= 1:
         return False
-    elif input == 2:
+    elif input_number == 2:
         return True
-    
-def unknown_output(input):
+        
+def unknown_output(input_number):
     '''Finding the prime or Not Prime'''
-    for item in range(2, input):
-        if input % item == 0:
+    for item in range(2, input_number):
+        if input_number % item == 0:
             return False
     return True
     
-def result_showing(input, isprime):
+def result_showing(input_number, isprime):
     '''Printing The output and return it '''
-    if isprime == True:
-        print(f"{input} It's a prime number")
+    if isprime :
+        print(f"{input_number} It's a prime number")
         return "It's prime"
     else:
-        print(f"{input} is not a prime number")
+        print(f"{input_number} is not a prime number")
         return "It's not prime"
 
 def replay():
@@ -58,9 +58,9 @@ def count_giver():
             lines = f.readlines()
             return ((len(lines)) - 1)
     except FileNotFoundError:
-        print("Sorry file is not available")
+        print("Sorry file is not available \nRestart the Program")
 
-def history_printer(user_input):
+def history_printer():
     '''Print the history on user input'''
     filename = 'history.txt'
     with open(filename) as file_object:
@@ -71,29 +71,29 @@ print("Check Prime or Not Prime 🕵️  🕵️")
 def main():
     '''This the main function'''
     history_header()
-    count = count_giver()
-    loop = 1
-    while loop:
-        input = take_input()
-        if input.isdigit():
-            input = int(input)
-            if input <= 2:
-                isprime = set_output(input)
+    line_counter = count_giver()
+    replay_input = True
+    while replay_input:
+        user_input = take_input()
+        if user_input.isdigit():
+            user_input = int(user_input)
+            if user_input <= 2:
+                isprime = set_output(user_input)
             else:
-                isprime = unknown_output(input)
+                isprime = unknown_output(user_input)
             
-            solution = result_showing(input, isprime)
+            solution = result_showing(user_input, isprime)
             
             with open("history.txt", "a") as h:
-                h.write(f"\t{count}) {input} = {solution} \n")
+                h.write(f"\t{line_counter}) {user_input} = {solution} \n")
             
-            loop = replay() 
-            count += 1
+            replay_input = replay() 
+            line_counter += 1
         
-        elif input.lower() in ("history", "History", 'h') :
+        elif user_input.lower() in ("history", "History", 'h') :
             print("This is your full history")
-            history_printer(input)
-            loop = replay() 
+            history_printer()
+            replay_input = replay() 
                     
 if __name__ == "__main__": 
     main()
